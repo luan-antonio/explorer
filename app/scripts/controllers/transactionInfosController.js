@@ -30,7 +30,7 @@ angular.module('ethExplorer')
                     }
                     $scope.from = result.from;
                     $scope.gas = result.gas;
-                    $scope.gasPrice = result.gasPrice.c[0] + " WEI";
+                    $scope.gasPrice = result.gasPrice.c[0] + " IZIWEI";
                     $scope.hash = result.hash;
                     $scope.input = result.input; // that's a string
                     $scope.nonce = result.nonce;
