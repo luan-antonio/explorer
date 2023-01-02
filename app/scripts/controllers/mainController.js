@@ -14,7 +14,9 @@ angular
       $scope.blocks.push(web3.eth.getBlock(blockNum - i));
     }
     $scope.processRequest = function (block) {
-      var requestStr = $scope.ethRequest.split("0x").join("");
+      if (!block) {
+        var requestStr = $scope.ethRequest.split("0x").join("");
+      }
 
       if (requestStr.length === 40) return goToAddrInfos(requestStr);
       else if (requestStr.length === 64) {
@@ -22,8 +24,7 @@ angular
           return goToTxInfos("0x" + requestStr);
         else if (/[0-9]{1,7}?/.test(requestStr))
           return goToBlockInfos(requestStr);
-      } else if (parseInt(block) > 0)
-        return goToBlockInfos(parseInt(block));
+      } else if (parseInt(block) > 0) return goToBlockInfos(parseInt(block));
 
       alert("Don't know how to handle " + requestStr);
     };
