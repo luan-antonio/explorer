@@ -10,7 +10,6 @@ angular
 
         if ($scope.addressId !== undefined) {
           getAddressInfos().then(function (result) {
-            console.log("Address info", result);
             $scope.balance = result.balance;
             $scope.balanceInEther = result.balanceInEther;
           });
