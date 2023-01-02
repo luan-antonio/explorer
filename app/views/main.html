@@ -15,7 +15,7 @@
 	  <th>Timestamp</th>
 	</tr>
 	<tr data-ng-repeat="i in blocks">
-	  <td><a href="http://44.204.134.126/xziscan/#/block/{{i.number}}">{{i.number}}</a></td>
+	  <td><a ng-click="processRequest(i.number)">{{i.number}}</a></td>
 	  <td>{{i.transactions.length}}</td>
 	  <td>{{i.size}}</td>
 	  <td>{{i.timestamp}}</td>
