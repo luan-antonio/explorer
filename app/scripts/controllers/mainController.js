@@ -16,6 +16,8 @@ angular
     $scope.processRequest = function (block) {
       if (!block) {
         var requestStr = $scope.ethRequest.split("0x").join("");
+      } else {
+        var requestStr = block;
       }
 
       if (requestStr.length === 40) return goToAddrInfos(requestStr);
@@ -24,7 +26,7 @@ angular
           return goToTxInfos("0x" + requestStr);
         else if (/[0-9]{1,7}?/.test(requestStr))
           return goToBlockInfos(requestStr);
-      } else if (parseInt(block) > 0) return goToBlockInfos(parseInt(block));
+      } else if (parseInt(requestStr) > 0) return goToBlockInfos(parseInt(requestStr));
 
       alert("Don't know how to handle " + requestStr);
     };
